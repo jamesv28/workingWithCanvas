@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500">
+    <!-- stuff goes here -->
+</canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+
+    //fun stuff
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 40;
+
+    /**
+     * The beginPath() method begins a path, or resets the current path.
+     * */
+
+    function randColor() {
+        var r = 255*Math.random()|0,
+                g = 255*Math.random()|0,
+                b = 255*Math.random()|0;
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "purple";
+    context.fill();
+    context.lineWidth = 5;
+    context.strokeStyle = "#003300";
+    context.stroke();
+
+    /* four parameters of rect: x at top most-left, y of top most let, width and height */
+    context.beginPath();
+    context.rect(20, 20, 100, 50);
+    context.fillStyle = "yellow";
+    context.fill();
+    context.stroke();
+
+    context.color = "#ffffff";
+
+</script>
+</body>
+</html>
